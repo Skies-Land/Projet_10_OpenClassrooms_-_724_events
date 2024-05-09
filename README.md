@@ -4,6 +4,7 @@ Correction de bugs qui entravent le bon fonctionnement du site.
 
 ### Prérequis :
 - [Yarn](https://classic.yarnpkg.com/en/)
+  
 Installation des dépendances du projet :
 
 ```bash
