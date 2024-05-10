@@ -16,8 +16,8 @@ export const api = {
   },
 };
 
-/**
- * Composant DataProvider pour gérer le chargement des données et l'état.
+/** DATA PROVIDER
+ * permet de gérer le chargement des données et l'état.
  * @param {object} props - Propriétés du composant.
  * @param {React.ReactNode} props.children - Composants enfants à rendre dans le fournisseur.
  * @returns {JSX.Element} Composant rendu avec le fournisseur de contexte de données.
@@ -27,7 +27,7 @@ export const DataProvider = ({ children }) => {
   const [data, setData] = useState(null); // État pour contenir les données chargées.
   const [last, setLast] = useState(null); // État pour contenir le dernier événement des données chargées.
 
-  /**
+  /** GET DATA
    * Fonction asynchrone pour récupérer les données depuis l'API.
    */
   const getData = useCallback(async () => {
@@ -40,7 +40,7 @@ export const DataProvider = ({ children }) => {
     }
   }, []);
 
-  /**
+  /** USE EFFECT
    * Effet pour déclencher le chargement des données lorsque l'état data est initialement null.
    */
   useEffect(() => {
@@ -67,7 +67,7 @@ DataProvider.propTypes = {
   children: PropTypes.node.isRequired, // S'assurer que la prop children est fournie et de type nœud React.
 }
 
-/**
+/** USE DATA
  * Hook personnalisé pour accéder au contexte de données.
  * @returns {object} Objet contenant les valeurs du contexte de données.
  */
