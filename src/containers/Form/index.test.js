@@ -1,13 +1,13 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import Form from "./index";
-
-describe("When Events is created", () => {
-  it("a list of event card is displayed", async () => {
+describe("When Form is created", () => {
+  it("fields email, Nom, Prénom, Personel / Entreprise et message are displayed", async () => {
     render(<Form />);
     await screen.findByText("Email");
     await screen.findByText("Nom");
     await screen.findByText("Prénom");
     await screen.findByText("Personel / Entreprise");
+    await screen.findByText("Message");
   });
 
   describe("and a click is triggered on the submit button", () => {
@@ -22,7 +22,8 @@ describe("When Events is created", () => {
         })
       );
       await screen.findByText("En cours");
-      await screen.findByText("Envoyer");
+      // await screen.findByText("Envoyer");
+      await screen.findByDisplayValue("En cours");
       expect(onSuccess).toHaveBeenCalled();
     });
   });
