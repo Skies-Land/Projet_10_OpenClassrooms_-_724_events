@@ -4,7 +4,8 @@ import Field, { FIELD_TYPES } from "../../components/Field";
 import Select from "../../components/Select";
 import Button, { BUTTON_TYPES } from "../../components/Button";
 
-const mockContactApi = () => new Promise((resolve) => { setTimeout(resolve, 1000); })
+const mockContactApi = () => new Promise((resolve) => { setTimeout(resolve, 500); })
+// Réduction de la durée de la promesse pour les tests unitaires 500ms au lieu de 1000ms
 
 const Form = ({ onSuccess, onError }) => {
   const [sending, setSending] = useState(false);
@@ -39,8 +40,6 @@ const Form = ({ onSuccess, onError }) => {
           />
           <Field placeholder="" label="Email" />
           <Button type={BUTTON_TYPES.SUBMIT} disabled={sending}
-          // Appel de la fonction onSuccess pour confirmer l'envoie du message
-          onClick={() => onSuccess()}
           >
             {sending ? "En cours" : "Envoyer"}
           </Button>

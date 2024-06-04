@@ -1,5 +1,6 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import Form from "./index";
+
 describe("When Form is created", () => {
   it("fields email, Nom, Prénom, Personel / Entreprise et message are displayed", async () => {
     render(<Form />);
@@ -22,8 +23,7 @@ describe("When Form is created", () => {
         })
       );
       await screen.findByText("En cours");
-      // await screen.findByText("Envoyer");
-      await screen.findByDisplayValue("En cours");
+      await screen.findByText("Envoyer");
       expect(onSuccess).toHaveBeenCalled();
     });
   });
